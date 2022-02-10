@@ -22,6 +22,17 @@ Route::get('/posts', function () {
 });
 
 Route::get('/bjr/{name}', function () {
+    // $name = $_GET['name'];
     $name = request('name');
     return view('bonjour', ['name' => $name]);
+});
+
+Route::get('/submit', function () {
+    return view('auth.submit');
+});
+
+Route::post('/submit', function () {
+    // $email = $_POST['email'];
+    $email = request('name');
+    return 'Formulaire reçu, l\'email : ' . $email;
 });
