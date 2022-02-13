@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,18 +33,23 @@ Route::get('/submit', function () {
 
 Route::post('/submit', function () {
     // $email = $_POST['email'];
-    $email = request('email');
-    $user = new App\User([
+    // $email = request('email');
+    request()->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'confirmed', 'min:8'],
+        'password_confirmation' => ['required']
+    ]);
+    $user = new User([
         'email' => request('email'),
         'password' => bcrypt(request('password'))
     ]);
 
     $user->save();
 
-    return 'Formulaire reçu, l\'email : ' . $email;
+    return 'Formulaire reçu, l\'email : ' . request('email') . '<br> le mot de passe : ' . request('password');
 });
 
 Route::get('/users', function() {
-    $users = App\User::all();
+    $users = User::all();
     return view('users', ['users' => $users]);
 });
