@@ -1,0 +1,60 @@
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  color: #f0f0f0;
+  background-color: #282828;
+}
+
+nav {
+  width: 100%;
+}
+nav ul {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-around;
+}
+nav ul li {
+  padding: 1rem;
+  list-style: none;
+}
+
+.create_profil {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+form .row {
+  padding: 1rem;
+}
+form input[type=submit] {
+  padding: 0.5rem;
+}
+
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  color: #f0f0f0;
+  background-color: #282828;
+}
+footer p {
+  padding: 1rem;
+}

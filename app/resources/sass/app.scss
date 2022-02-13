@@ -1,0 +1,61 @@
+* {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: fit-content;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    color: rgb(240, 240, 240);
+    background-color: rgba(40, 40, 40, 1);
+}
+
+nav {
+    width: 100%;
+    & ul {
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        justify-content: space-around;
+        & li {
+            padding: 1rem;
+            list-style: none;
+        }
+    }
+}
+
+.create_profil {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+form {
+    & .row {
+        padding: 1rem;
+    }
+
+    & input[type="submit"] {
+        padding: 0.5rem;
+    }
+}
+
+footer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    color: rgb(240, 240, 240);
+    background-color: rgba(40, 40, 40, 1);
+    & p {
+        padding: 1rem;
+    }
+}
