@@ -33,6 +33,18 @@ Route::get('/submit', function () {
 
 Route::post('/submit', function () {
     // $email = $_POST['email'];
-    $email = request('name');
+    $email = request('email');
+    $user = new App\User([
+        'email' => request('email'),
+        'password' => bcrypt(request('password'))
+    ]);
+
+    $user->save();
+
     return 'Formulaire reçu, l\'email : ' . $email;
+});
+
+Route::get('/users', function() {
+    $users = App\User::all();
+    return view('users', ['users' => $users]);
 });
