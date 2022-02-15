@@ -38,6 +38,8 @@ Route::post('/submit', function () {
         'email' => ['required', 'email'],
         'password' => ['required', 'confirmed', 'min:8'],
         'password_confirmation' => ['required']
+    ], [
+        'password.min' => 'Pour des raisons de sécurité, le mot de passe doit faire au moins :min caractères'
     ]);
     $user = new User([
         'email' => request('email'),
