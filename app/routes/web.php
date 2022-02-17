@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\User;
 /*
@@ -13,45 +14,11 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::view('/', 'index');
 
-Route::get('/posts', function () {
-    return view('posts.index');
-});
+Route::view('/posts', 'posts.index');
 
-Route::get('/bjr/{name}', function () {
-    // $name = $_GET['name'];
-    $name = request('name');
-    return view('bonjour', ['name' => $name]);
-});
+Route::get('/submit', 'SubmitController@showForm');
+Route::post('/submit', 'SubmitController@checkForm');
 
-Route::get('/submit', function () {
-    return view('auth.submit');
-});
-
-Route::post('/submit', function () {
-    // $email = $_POST['email'];
-    // $email = request('email');
-    request()->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required', 'confirmed', 'min:8'],
-        'password_confirmation' => ['required']
-    ], [
-        'password.min' => 'Pour des raisons de sécurité, le mot de passe doit faire au moins :min caractères'
-    ]);
-    $user = new User([
-        'email' => request('email'),
-        'password' => bcrypt(request('password'))
-    ]);
-
-    $user->save();
-
-    return 'Formulaire reçu, l\'email : ' . request('email') . '<br> le mot de passe : ' . request('password');
-});
-
-Route::get('/users', function() {
-    $users = User::all();
-    return view('users', ['users' => $users]);
-});
+Route::get('/users', 'UserController@list');
