@@ -2,7 +2,7 @@
 @section('content')
 <section class="create_profil">
     <h1>Formulaire de création d'un compte</h1>
-    <form action="/submit" method="post">
+    <form action="" method="post">
         {{ csrf_field() }}
         <div class="row">
             <label for="email">Email :</label>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SubmitController extends Controller
+class SignInController extends Controller
 {
     public function checkForm()
     {
@@ -28,6 +28,6 @@ class SubmitController extends Controller
     }
 
     public function showForm() {
-        return view('auth.submit');
+        return view('auth.signin');
     }
 }

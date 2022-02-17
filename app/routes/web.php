@@ -18,7 +18,10 @@ Route::view('/', 'index');
 
 Route::view('/posts', 'posts.index');
 
-Route::get('/submit', 'SubmitController@showForm');
-Route::post('/submit', 'SubmitController@checkForm');
+Route::get('/signin', 'SignInController@showForm');
+Route::post('/signin', 'SignInController@checkForm');
 
 Route::get('/users', 'UserController@list');
+
+Route::get('/connexion', 'ConnexionController@showConnexionForm');
+Route::post('/connexion', 'ConnexionController@checkConnexionForm');
