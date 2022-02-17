@@ -19,6 +19,11 @@ class ConnexionController extends Controller
         ]);
 
         // TODO verif email et password ok
+        auth()->attempt([
+            'email' => request('email'),
+            'password' => request('password')
+        ]);
+
 
         return 'Traitement formulaire connexion';
     }
