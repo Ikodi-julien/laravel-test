@@ -25,3 +25,5 @@ Route::get('/users', 'UserController@list');
 
 Route::get('/connexion', 'ConnexionController@showConnexionForm');
 Route::post('/connexion', 'ConnexionController@checkConnexionForm');
+
+Route::view('/mon-compte', 'user.mon-compte');
