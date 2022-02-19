@@ -19,11 +19,11 @@ class UserController extends Controller
 
         $user = User::where('email', $email)->firstOrFail();
         // $messages = Message::where('user_id', $user->id)->orderByDesc('created_at')->get();
-        $messages = Message::where('user_id', $user->id)->latest()->get();
+        // $messages = Message::where('user_id', $user->id)->latest()->get();
+        // $messages = $user->messages;
 
         return view('user.messages', [
             'user' => $user,
-            'messages' => $messages
         ]);
     }
 }

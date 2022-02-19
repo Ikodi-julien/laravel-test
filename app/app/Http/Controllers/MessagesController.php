@@ -13,11 +13,15 @@ class MessagesController extends Controller
         ]);
 
         // Création d'un message en base de données
-        $message = new Message([
-            'user_id' => auth()->id(),
+        // $message = new Message([
+        //     'user_id' => auth()->id(),
+        //     'content' => request('message')
+        // ]);
+        // $message->save();
+
+        auth()->user()->messages()->create([
             'content' => request('message')
         ]);
-        $message->save();
 
         // Redirect
         flash('Votre message a bien été publié.')->success();

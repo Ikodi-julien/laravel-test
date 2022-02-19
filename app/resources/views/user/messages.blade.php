@@ -25,7 +25,7 @@
         </div>
     </form>
 
-    @foreach ($messages as $message)
+    @foreach ($user->messages as $message)
         <hr>
         <strong>{{ $message->created_at }}</strong>
         <p>
