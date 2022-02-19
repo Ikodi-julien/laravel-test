@@ -3,7 +3,7 @@
     <h1>Les utilisateurs</h1>
     <ul>
         @foreach ($users as $user)
-        <li>{{ $user->email}}</li>
+        <li><a href="/{{ $user->email}}">{{ $user->email}}</a></li>
 
         @endforeach
     </ul>

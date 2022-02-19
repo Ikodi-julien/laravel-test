@@ -14,21 +14,14 @@ use App\User;
 |
 */
 
-Route::view('/', 'index');
-
-Route::view('/posts', 'posts.index');
+Route::get('/', 'UserController@list');
 
 Route::get('/signin', 'SignInController@showForm');
 Route::post('/signin', 'SignInController@checkForm');
-
-Route::get('/users', 'UserController@list');
-
 Route::get('/connexion', 'ConnexionController@showConnexionForm');
 Route::post('/connexion', 'ConnexionController@checkConnexionForm');
 Route::get('/logout', 'ProfilController@logout');
-
 Route::get('/mon-compte', 'ProfilController@index');
-
 Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
 
 Route::get('/{email}', 'UserController@showMessages');
