@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -16,9 +17,13 @@ class UserController extends Controller
     public function showMessages() {
         $email = request('email');
 
-        // TODO get user and set view
-        $user = User::where('email', $email)->first();
+        $user = User::where('email', $email)->firstOrFail();
+        // $messages = Message::where('user_id', $user->id)->orderByDesc('created_at')->get();
+        $messages = Message::where('user_id', $user->id)->latest()->get();
 
-        return view('user.messages', ['user' => $user]);
+        return view('user.messages', [
+            'user' => $user,
+            'messages' => $messages
+        ]);
     }
 }
