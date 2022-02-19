@@ -28,4 +28,29 @@ class ProfilController extends Controller
         flash('Vous n\'êtes pas connecté');
         return redirect('/connexion');
     }
+
+    public function checkNewPassword() {
+        if (auth()->guest()) {
+            flash("Vous devez être connecté pour voir cette page")->error();
+            return redirect('/connexion');
+        }
+
+        request()->validate([
+            'password' => ['required', 'confirmed', 'min: 8'],
+            'password_confirmation' => ['required'],
+        ]);
+
+        // Modifier l'utilisateur,
+        $user = auth()->user();
+        $user->password = bcrypt(request('password'));
+        $user->save();
+
+        // ou
+        auth()->user()->update([
+            'password' => bcrypt(request('password'))
+        ]);
+
+        flash('Votre mot de passe a été mis à jour')->success();
+        return redirect('/mon-compte');
+    }
 }

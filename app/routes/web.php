@@ -28,3 +28,5 @@ Route::post('/connexion', 'ConnexionController@checkConnexionForm');
 Route::get('/logout', 'ProfilController@logout');
 
 Route::get('/mon-compte', 'ProfilController@index');
+
+Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
