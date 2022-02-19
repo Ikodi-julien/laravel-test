@@ -16,4 +16,13 @@ class FollowController extends Controller
 
         return back();
     }
+    public function deleteFollow() {
+        $me = auth()->user();
+        $userToDeleteFollow = User::where('email', request('email'))->firstOrFail();
+
+        $me->follows()->detach($userToDeleteFollow);
+        flash("Vous ne suivez plus {$userToDeleteFollow->email}")->success();
+
+        return back();
+    }
 }

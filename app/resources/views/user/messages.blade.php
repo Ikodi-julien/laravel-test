@@ -6,7 +6,16 @@
             @auth
             <form action="/{{ $user->email }}/follow" method="post">
                 {{csrf_field()}}
-                <button type="submit">Suivre</button>
+                @if (auth()->user()->isFollowing($user))
+                    {{ method_field('delete')}}
+                @endif
+                <button type="submit">
+                    @if (auth()->user()->isFollowing($user))
+                        Ne plus suivre
+                    @else
+                        Suivre
+                    @endif
+                </button>
             </form>
             @endauth
         </h1>

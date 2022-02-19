@@ -29,6 +29,7 @@ Route::group([
     Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
     Route::post('/messages', 'MessagesController@checkMessage');
     Route::post('/{email}/follow', 'FollowController@setFollow');
+    Route::delete('/{email}/follow', 'FollowController@deleteFollow');
 });
 
 Route::get('/{email}', 'UserController@showMessages');
