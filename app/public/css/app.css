@@ -31,6 +31,10 @@ nav ul li {
   padding: 1rem;
   list-style: none;
 }
+nav ul li a {
+  color: inherit;
+  text-decoration: none;
+}
 
 .create_profil {
   width: 100%;
