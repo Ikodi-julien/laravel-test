@@ -49,6 +49,13 @@ nav .nav__container .links {
   justify-content: space-around;
 }
 
+h1 {
+  display: flex;
+}
+h1 .in-h1 {
+  padding: 0 1rem;
+}
+
 .create_profil {
   width: 100%;
   max-width: 800px;
@@ -56,6 +63,11 @@ nav .nav__container .links {
   padding: 2rem 1rem;
 }
 
+form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 form .row {
   padding: 1rem;
 }

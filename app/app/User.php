@@ -15,4 +15,8 @@ class User extends Model implements Authenticatable
     public function messages() {
         return $this->hasMany(Message::class)->latest();
     }
+
+    public function follows() {
+        return $this->belongsToMany(User::class, 'followed_has_follower', 'follower_id', 'followed_id');
+    }
 }
