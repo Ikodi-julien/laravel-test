@@ -20,10 +20,14 @@ Route::get('/signin', 'SignInController@showForm');
 Route::post('/signin', 'SignInController@checkForm');
 Route::get('/connexion', 'ConnexionController@showConnexionForm');
 Route::post('/connexion', 'ConnexionController@checkConnexionForm');
-Route::get('/logout', 'ProfilController@logout');
-Route::get('/mon-compte', 'ProfilController@index');
-Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
 
-Route::post('/messages', 'MessagesController@checkMessage');
+Route::group([
+    'middleware' => 'App\Http\Middleware\Auth'
+], function() {
+    Route::get('/logout', 'ProfilController@logout');
+    Route::get('/mon-compte', 'ProfilController@index');
+    Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
+    Route::post('/messages', 'MessagesController@checkMessage');
+});
 
 Route::get('/{email}', 'UserController@showMessages');
