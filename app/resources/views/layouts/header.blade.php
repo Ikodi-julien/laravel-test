@@ -1,32 +1,21 @@
 <header>
-    <nav>
-        <div class="nav__container">
-            <a href="/"><span class="link {{request()->is('/') ? 'is-active' : ''}}">Accueil</span></a>
-            <div class="links">
-                @if (auth()->check())
-                <a href="/mon-compte ">
-                    <span class="link {{request()->is('mon-compte') ? 'is-active' : ''}}">
-                        Mon compte
-                    </span>
-                </a>
-                <a href="/logout">
-                    <span class="link {{request()->is('logout') ? 'is-active' : ''}}">
-                        Deconnexion
-                    </span>
-                </a>
-                @else
-                <a href="/signin">
-                    <span class="link {{request()->is('signin') ? 'is-active' : ''}}">
-                        Créer un compte
-                    </span>
-                </a>
-                <a href="/connexion">
-                    <span class="link {{request()->is('connexion') ? 'is-active' : ''}}">
-                        Connexion
-                    </span>
-                </a>
-                @endif
-            </div>
-        </div>
-    </nav>
+	<nav>
+		<div class="nav__container">
+			<div class="links">
+				@include('partials.navbar-item', ['link' => '/', 'text' => 'Accueil'])
+				@auth
+					@include('partials.navbar-item', ['link' => auth()->user()->email, 'text' => auth()->user()->email])
+				@endauth
+			</div>
+			<div class="links">
+				@if (auth()->check())
+					@include('partials.navbar-item', ['link' => 'mon-compte', 'text' => 'Mon compte'])
+					@include('partials.navbar-item', ['link' => 'logout', 'text' => 'Deconnexion'])
+				@else
+					@include('partials.navbar-item', ['link' => 'signin', 'text' => 'Créer un compte'])
+					@include('partials.navbar-item', ['link' => 'connexion', 'text' => 'Connexion'])
+				@endif
+			</div>
+		</div>
+	</nav>
 </header>

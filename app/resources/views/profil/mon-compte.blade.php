@@ -2,8 +2,6 @@
 @section('content')
 <div class="section">
     <h1>Mon compte</h1>
-    <p>Vous êtes bien connecté</p>
-    <a href="/logout">Déconnexion</a>
 
     <form action="/modification-mot-de-passe" method="post">
         {{ csrf_field() }}
