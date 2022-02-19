@@ -12,4 +12,13 @@ class UserController extends Controller
         $users = User::all();
         return view('users', ['users' => $users]);
     }
+
+    public function showMessages() {
+        $email = request('email');
+
+        // TODO get user and set view
+        $user = User::where('email', $email)->first();
+
+        return view('user.messages', ['user' => $user]);
+    }
 }
