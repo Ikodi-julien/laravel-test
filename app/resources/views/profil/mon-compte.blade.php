@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <section>
+    <figure>
+        <img src="/storage/{{ auth()->user()->avatar}}" alt="mon avatar">
+    </figure>
     <h1>Mon compte</h1>
 
     <hr>

@@ -42,12 +42,13 @@ class ProfilController extends Controller
             'avatar' => ['required', 'image']
         ]);
 
-        $path = request('avatar')->store('avatars');
+        $path = request('avatar')->store('avatars', 'public');
 
         auth()->user()->update([
             'avatar' => $path
         ]);
 
-        return  $path;
+        flash('Avatar mis à jour');
+        return  back();
     }
 }
