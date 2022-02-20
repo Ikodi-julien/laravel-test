@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\FollowerMail;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class FollowController extends Controller
 {
@@ -13,6 +15,8 @@ class FollowController extends Controller
 
         $me->follows()->attach($userToFollow);
         flash("Vous suivez maintenant {$userToFollow->email}")->success();
+
+        Mail::to($me)->send(new FollowerMail);
 
         return back();
     }

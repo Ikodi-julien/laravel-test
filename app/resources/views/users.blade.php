@@ -16,7 +16,6 @@
                 <li><a href="/{{ $followed->email}}">{{ $followed->email}}</a></li>
                 @empty
                 Vous ne suivez aucun utilisateur
-                @endempty
                 @endforelse
 
             </ul>
