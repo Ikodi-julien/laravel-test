@@ -7,18 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class FollowerMail extends Mailable
+class NewFollower extends Mailable
 {
     use Queueable, SerializesModels;
-    public $follower;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($follower)
+    public function __construct()
     {
-        $this->follower = $follower;
+        //
     }
 
     /**
@@ -28,7 +28,6 @@ class FollowerMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Nouveau follower')
-                    ->markdown('emails.newfollower');
+        return $this->markdown('emails.newfollower');
     }
 }
