@@ -16,10 +16,11 @@ class FollowController extends Controller
         $me->follows()->attach($userToFollow);
         flash("Vous suivez maintenant {$userToFollow->email}")->success();
 
-        Mail::to($me)->send(new FollowerMail);
+        Mail::to($userToFollow)->send(new FollowerMail($me));
 
         return back();
     }
+
     public function deleteFollow() {
         $me = auth()->user();
         $userToDeleteFollow = User::where('email', request('email'))->firstOrFail();

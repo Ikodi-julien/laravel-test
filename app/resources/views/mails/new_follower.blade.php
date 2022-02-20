@@ -1,1 +1,2 @@
-Vous avez un nouveau follower
+Vous avez un nouveau follower :
+{{$follower->email}}
