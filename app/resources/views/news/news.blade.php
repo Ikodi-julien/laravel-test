@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="section">
+    <section class="section">
         <h1 class="title is-1">News</h1>
 
         @foreach ($messages as $message)
@@ -10,5 +10,5 @@
                 {{ $message->content}}
             </p>
         @endforeach
-    </div>
+    </section>
 @endsection

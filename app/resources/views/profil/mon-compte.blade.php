@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="section">
+<section>
     <h1>Mon compte</h1>
 
     <form action="/modification-mot-de-passe" method="post">
@@ -33,5 +33,5 @@
         </div>
     </form>
 
-</div>
+</section>
 @endsection

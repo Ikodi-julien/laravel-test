@@ -49,6 +49,13 @@ nav .nav__container .links {
   justify-content: space-around;
 }
 
+section {
+  width: 100%;
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
 h1 {
   display: flex;
 }
