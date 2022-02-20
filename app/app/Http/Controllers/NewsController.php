@@ -20,6 +20,7 @@ class NewsController extends Controller
 
         $messages = auth()->user()
         ->follows
+        ->load('messages') // Permet de grouper les messages des différents user en une requête
         ->flatMap->messages
         ->sortByDesc->created_at;
 
