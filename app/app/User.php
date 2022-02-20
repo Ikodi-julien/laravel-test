@@ -21,7 +21,6 @@ class User extends Model implements Authenticatable
     }
 
     public function isFollowing($user): bool {
-
         return $this->follows()->where('followed_id', $user->id)->exists();
     }
 }
