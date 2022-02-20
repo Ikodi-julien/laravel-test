@@ -30,6 +30,7 @@ Route::group([
     Route::post('/messages', 'MessagesController@checkMessage');
     Route::post('/{email}/follow', 'FollowController@setFollow');
     Route::delete('/{email}/follow', 'FollowController@deleteFollow');
+    Route::get('/news', 'NewsController@list');
 });
 
 Route::get('/{email}', 'UserController@showMessages');

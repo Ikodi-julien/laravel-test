@@ -4,19 +4,22 @@
         <h1 class="title is-1">
             <span class="in-h1">{{ $user->email }}</span>
             @auth
-            <form action="/{{ $user->email }}/follow" method="post">
-                {{csrf_field()}}
-                @if (auth()->user()->isFollowing($user))
-                    {{ method_field('delete')}}
+                @if (auth()->user()->id !== $user->id)
+
+                    <form action="/{{ $user->email }}/follow" method="post">
+                        {{csrf_field()}}
+                        @if (auth()->user()->isFollowing($user))
+                            {{ method_field('delete')}}
+                        @endif
+                        <button type="submit">
+                            @if (auth()->user()->isFollowing($user))
+                                Ne plus suivre
+                            @else
+                                Suivre
+                            @endif
+                        </button>
+                    </form>
                 @endif
-                <button type="submit">
-                    @if (auth()->user()->isFollowing($user))
-                        Ne plus suivre
-                    @else
-                        Suivre
-                    @endif
-                </button>
-            </form>
             @endauth
         </h1>
 
@@ -41,6 +44,7 @@
             </div>
         </div>
     </form>
+    @endif
 </div>
 
     @foreach ($user->messages as $message)
@@ -51,6 +55,5 @@
         </p>
     @endforeach
 
-    @endif
 
 @endsection

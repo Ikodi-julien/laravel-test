@@ -5,6 +5,7 @@
 				@include('partials.navbar-item', ['link' => '/', 'text' => 'Accueil'])
 				@auth
 					@include('partials.navbar-item', ['link' => auth()->user()->email, 'text' => auth()->user()->email])
+                    @include('partials.navbar-item', ['link' => 'news', 'text' => 'News'])
 				@endauth
 			</div>
 			<div class="links">
