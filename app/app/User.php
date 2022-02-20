@@ -10,7 +10,7 @@ class User extends Model implements Authenticatable
 {
     use BasicAuthenticatable;
 
-    protected $fillable = ['email', 'password'];
+    protected $fillable = ['email', 'password', 'avatar'];
 
     public function messages() {
         return $this->hasMany(Message::class)->latest();

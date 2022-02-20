@@ -44,6 +44,10 @@ class ProfilController extends Controller
 
         $path = request('avatar')->store('avatars');
 
+        auth()->user()->update([
+            'avatar' => $path
+        ]);
+
         return  $path;
     }
 }
