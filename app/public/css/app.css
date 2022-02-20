@@ -71,15 +71,21 @@ h1 .in-h1 {
 }
 
 form {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
 }
 form .row {
   padding: 1rem;
 }
 form input[type=submit] {
   padding: 0.5rem;
+}
+
+label {
+  color: inherit;
+}
+
+.control {
+  padding: 1rem 0;
 }
 
 footer {

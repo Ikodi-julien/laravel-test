@@ -69,7 +69,7 @@ h1 {
 }
 
 form {
-    width: fit-content;
+    width: 100%;
     & .row {
         padding: 1rem;
     }
@@ -77,6 +77,17 @@ form {
     & input[type="submit"] {
         padding: 0.5rem;
     }
+}
+
+label {
+    color: inherit;
+}
+.field {
+    // width: 100%;
+}
+.control {
+    // width: 100%;
+    padding: 1rem 0;
 }
 
 footer {

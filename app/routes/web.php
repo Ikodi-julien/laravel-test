@@ -27,6 +27,7 @@ Route::group([
     Route::get('/logout', 'ProfilController@logout');
     Route::get('/mon-compte', 'ProfilController@index');
     Route::post('/modification-mot-de-passe', 'ProfilController@checkNewPassword');
+    Route::post('/modification-avatar', 'ProfilController@setAvatar');
     Route::post('/messages', 'MessagesController@checkMessage');
     Route::post('/{email}/follow', 'FollowController@setFollow');
     Route::delete('/{email}/follow', 'FollowController@deleteFollow');

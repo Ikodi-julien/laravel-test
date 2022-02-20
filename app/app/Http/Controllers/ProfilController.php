@@ -36,4 +36,14 @@ class ProfilController extends Controller
         flash('Votre mot de passe a été mis à jour')->success();
         return redirect('/mon-compte');
     }
+
+    public function setAvatar() {
+        request()->validate([
+            'avatar' => ['required', 'image']
+        ]);
+
+        $path = request('avatar')->store('avatars');
+
+        return  $path;
+    }
 }
